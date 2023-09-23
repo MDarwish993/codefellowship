@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1 th:if="${applicationUser != null}" th:text="${'Welcome : '+ applicationUser.username}"></h1>
+
+<a th:if="!${applicationUser}" href="/login">Log In</a>
+<br>
+<a th:if="!${applicationUser}" href="/signup">Sign Up</a>
+<br>
+<a th:if="${applicationUser}" href="/logout">Log Out</a>
+
+</body>
+</html>
