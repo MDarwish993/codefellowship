@@ -80,9 +80,8 @@ public class ApplicationUserController {
         }catch (ServletException e){
             e.printStackTrace();
         }
-
-
     }
+
 
 
 
