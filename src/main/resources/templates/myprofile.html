@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>My profile</title>
+</head>
+<body>
+
+<h1 th:if="${applicationUser != null}" th:text="${'Welcome :'+applicationUser.username}"></h1>
+
+<!--<div th:replace="/fragments/nav-header :: site-user"></div>-->
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShg8keaWuTWemET3-1mWqZae05N8W6SLGgGg&usqp=CAU" alt="Profile Picture" style="max-width: 100px; margin-top: 10px;">
+
+<h3 th:if="${applicationUser != null}">
+    <span th:text="${'Current user: ' + applicationUser.username }"></span><br>
+    <span th:text="${'First Name: ' + applicationUser.firstName }"></span><br>
+    <span th:text="${'Last Name: ' + applicationUser.lastName }"></span><br>
+    <span th:text="${'Date of Birth: ' + applicationUser.dateOfBirth }"></span><br>
+    <span th:text="${'Bio : ' + applicationUser.bio }"></span><br>
+</h3>
+<tr th:each="post : ${postList}"><br>
+    <td th:text="'My posts: ' + ${post.body}"></td><br>
+    <td th:text="'date: ' + ${post.createdAt}"></td><br>
+</tr>
+
+<h1>Add new Post</h1>
+<form th:action="@{/addPost}" method="post">
+    <label>post:</label>
+    <input type="text" name="body" placeholder="" required />
+    <input type="submit" value="addPost" />
+</form>
+
+<a th:if="!${applicationUser}" href="/login">Log In</a><br>
+<a th:if="!${applicationUser}" href="/signup">Sign Up</a><br>
+<a th:if="${applicationUser}" href="/logout">Log Out</a><br>
+
+</body>
+</html>
