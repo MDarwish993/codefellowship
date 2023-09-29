@@ -8,6 +8,10 @@
 
 <h1 th:if="${applicationUser != null}" th:text="${'Welcome :'+applicationUser.username}"></h1>
 
+<a th:href="@{/users}">ALL USERS</a>
+<a th:href="@{/feed}">Feed</a>
+<div th:replace="/fragments/nav-header :: site-user"></div>
+
 <!--<div th:replace="/fragments/nav-header :: site-user"></div>-->
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShg8keaWuTWemET3-1mWqZae05N8W6SLGgGg&usqp=CAU" alt="Profile Picture" style="max-width: 100px; margin-top: 10px;">
 

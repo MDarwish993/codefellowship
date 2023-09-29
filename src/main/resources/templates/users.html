@@ -8,6 +8,11 @@
 <h1 th:if="${user != null}" th:text="${'Current user: ' + applicationUser.username }">find by id</h1>
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShg8keaWuTWemET3-1mWqZae05N8W6SLGgGg&usqp=CAU" alt="Profile Picture" style="max-width: 100px; margin-top: 10px;">
 <h3 th:if="${user != null}">
+
+    <form th:action="@{'/follow/' +${id}}" method="post">
+        <input type="submit" value="Follow">
+    </form>
+
     <span th:text="${'Current user: ' + applicationUser.username }"></span><br>
     <span th:text="${'First Name: ' + applicationUser.firstName }"></span><br>
     <span th:text="${'Last Name: ' + applicationUser.lastName }"></span><br>
